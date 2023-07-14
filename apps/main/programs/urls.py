@@ -9,7 +9,7 @@ from apps.main.programs.api import ProgramViewSet
 
 router = routers.DefaultRouter()
 
-router.register('programs', ProgramViewSet)
+router.register('programs', ProgramViewSet, basename='programs')
 
 urlpatterns = [
     path(r'', include(router.urls)),
