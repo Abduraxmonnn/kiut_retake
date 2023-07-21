@@ -1,0 +1,1 @@
+from apps.main.subjects.api.api_subjects import SubjectViewSet

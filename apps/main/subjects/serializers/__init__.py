@@ -1,0 +1,1 @@
+from apps.main.subjects.serializers.serializer_subjects import SubjectSerializer
