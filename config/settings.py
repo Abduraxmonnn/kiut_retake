@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     # Apps
     'apps.user',
     'apps.main.programs',
-    'apps.main.subjects'
+    'apps.main.subjects',
+    'apps.main.rooms'
 ]
 
 MIDDLEWARE = [
@@ -133,3 +134,11 @@ MEDIA_URL = '/media/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# REST FRAMEWORK SETTINGS
+
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': [
+        'django_filters.rest_framework.DjangoFilterBackend'
+    ]
+}
