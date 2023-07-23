@@ -1,0 +1,1 @@
+from apps.main.rooms.api.api_rooms import RoomViewSet
