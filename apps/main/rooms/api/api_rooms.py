@@ -29,9 +29,6 @@ class RoomViewSet(ModelViewSet):
         build = request.POST.get('build')
         number = request.POST.get('number')
         type_room = request.POST.get('type_room')
-        print(build)
-        print(number)
-        print(type_room)
 
         query = Room.objects.filter(build=build, number=number)
 
@@ -50,6 +47,7 @@ class RoomViewSet(ModelViewSet):
             'message': 'Object created successfully',
             'data':
                 {
+                    'id': created.id,
                     'build': created.build,
                     'number': int(created.number),
                     'type_room': created.type_room
