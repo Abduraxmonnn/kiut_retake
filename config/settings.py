@@ -44,7 +44,10 @@ INSTALLED_APPS = [
     'apps.user',
     'apps.main.programs',
     'apps.main.subjects',
-    'apps.main.rooms'
+    'apps.main.rooms',
+    # 'apps.main.fails',
+    # 'apps.main.groups',
+    'apps.main.deans'
 ]
 
 MIDDLEWARE = [
