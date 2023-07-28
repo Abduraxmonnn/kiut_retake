@@ -1,0 +1,1 @@
+from apps.main.deans.api.api_dean import DeanViewSet

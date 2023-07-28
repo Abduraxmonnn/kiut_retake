@@ -1,0 +1,1 @@
+from apps.main.deans.serializers.serializer_dean import DeanSerializer
