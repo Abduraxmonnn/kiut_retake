@@ -12,7 +12,7 @@ from apps.main.deans.serializers import DeanSerializer
 
 class DeanViewSet(viewsets.ModelViewSet):
     """
-    ViewSet for the Dean model.
+    ViewSet for the Deans of University.
 
     The DeanViewSet allows CRUD operations (Create, Retrieve, Update, and Delete) for instances
     of the Dean model. It uses the DeanSerializer to serialize and deserialize data between the

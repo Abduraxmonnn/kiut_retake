@@ -1,6 +1,5 @@
 # Rest-Framework
-from rest_framework import serializers, status
-from rest_framework.response import Response
+from rest_framework import serializers
 
 # Project
 from apps.main.deans.models import Dean
@@ -8,7 +7,7 @@ from apps.main.deans.models import Dean
 
 class DeanSerializer(serializers.ModelSerializer):
     """
-    Serializer for the Dean model.
+    Serializer for the Deans of University.
 
     The DeanSerializer is responsible for converting instances of the Dean model
     to and from JSON format. It allows data to be serialized for responses and deserialized
@@ -18,6 +17,7 @@ class DeanSerializer(serializers.ModelSerializer):
     class Meta:
         model = Dean
         fields = [
+            'id',
             'full_name',
             'dob',
             'image',
@@ -45,10 +45,7 @@ class DeanSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError("Error. Dean with the same full name and date of birth already exists.")
 
         dean = Dean.objects.create(full_name=full_name, dob=dob, image=image)
-        return {
-            'message': 'Dean Created Successfully',
-            'data': self.to_representation(dean)
-        }
+        return self.to_representation(dean)
 
     def update(self, instance, validated_data):
         """
@@ -76,7 +73,4 @@ class DeanSerializer(serializers.ModelSerializer):
         instance.image = image
         instance.save()
 
-        return {
-            'message': 'Dean Created Successfully',
-            'data': self.to_representation(instance)
-        }
+        return self.to_representation(instance)
