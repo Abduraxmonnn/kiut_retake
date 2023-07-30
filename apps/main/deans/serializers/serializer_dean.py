@@ -3,6 +3,7 @@ from rest_framework import serializers
 
 # Project
 from apps.main.deans.models import Dean
+from apps.services import create_service
 
 
 class DeanSerializer(serializers.ModelSerializer):
@@ -44,7 +45,7 @@ class DeanSerializer(serializers.ModelSerializer):
         if Dean.objects.filter(full_name=full_name, dob=dob).exists():
             raise serializers.ValidationError("Error. Dean with the same full name and date of birth already exists.")
 
-        dean = Dean.objects.create(full_name=full_name, dob=dob, image=image)
+        dean = create_service(Dean.objects, full_name=full_name, dob=dob, image=image)
         return self.to_representation(dean)
 
     def update(self, instance, validated_data):

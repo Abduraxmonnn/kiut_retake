@@ -11,6 +11,7 @@ from rest_framework.response import Response
 # Project
 from apps.main.rooms.models import Room
 from apps.main.rooms.serializers import RoomSerializer
+from apps.services import create_service, filter_service
 
 
 class RoomViewSet(ModelViewSet):
@@ -30,18 +31,14 @@ class RoomViewSet(ModelViewSet):
         number = request.POST.get('number')
         type_room = request.POST.get('type_room')
 
-        query = Room.objects.filter(build=build, number=number)
+        query = filter_service(Room.objects, build=build, number=number)
 
         if query.exists():
             return Response({
                 'message': 'This Room Exists, Please check or create another Room'
             }, status=status.HTTP_409_CONFLICT)
 
-        created = Room.objects.create(
-            build=build,
-            number=number,
-            type_room=type_room
-        )
+        created = create_service(Room.objects, build=build, number=number, type_room=type_room)
         created.save()
         return Response({
             'message': 'Object created successfully',
