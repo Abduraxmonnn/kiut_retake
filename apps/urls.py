@@ -8,13 +8,15 @@ from rest_framework import routers
 from apps.main.programs.api import ProgramViewSet
 from apps.main.rooms.api import RoomViewSet
 from apps.main.subjects.api import SubjectViewSet
+from apps.main.faculties.api import FacultyViewSet
 
 router = routers.DefaultRouter()
 
-router.register('programs', ProgramViewSet, basename='programs')
-router.register('rooms', RoomViewSet, basename='rooms')
-router.register('subjects', SubjectViewSet, basename='subjects')
+router.register('v1/programs', ProgramViewSet, basename='programs')
+router.register('v1/rooms', RoomViewSet, basename='rooms')
+router.register('v1/subjects', SubjectViewSet, basename='subjects')
+router.register('v1/faculties', FacultyViewSet, basename='faculties')
 
 urlpatterns = [
-    path(r'api/v1/', include(router.urls)),
+    path(r'', include(router.urls)),
 ]

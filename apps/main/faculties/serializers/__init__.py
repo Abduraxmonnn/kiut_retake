@@ -1,0 +1,1 @@
+from apps.main.faculties.serializers.serializer_faculty import FacultySerializer

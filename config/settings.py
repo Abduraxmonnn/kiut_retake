@@ -47,7 +47,8 @@ INSTALLED_APPS = [
     'apps.main.rooms',
     # 'apps.main.fails',
     # 'apps.main.groups',
-    'apps.main.deans'
+    'apps.main.deans',
+    'apps.main.faculties'
 ]
 
 MIDDLEWARE = [
@@ -146,3 +147,9 @@ REST_FRAMEWORK = {
         'django_filters.rest_framework.DjangoFilterBackend'
     ]
 }
+
+# DEBUG_TOOLBAR SETTINGS
+
+INTERNAL_IPS = [
+    "127.0.0.1",
+]

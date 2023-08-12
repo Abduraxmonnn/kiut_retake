@@ -1,0 +1,1 @@
+from apps.main.faculties.api.api_faculty import FacultyViewSet
