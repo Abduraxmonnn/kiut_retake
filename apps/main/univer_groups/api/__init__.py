@@ -1,1 +1,2 @@
-from apps.main.univer_groups.api.api_univer_group import UniverGroupViewSet
+from apps.main.univer_groups.api.univer_group_api import UniverGroupViewSet, UniverGroupListViewSet
+from apps.user.api.student_list_api import StudentListViewSet

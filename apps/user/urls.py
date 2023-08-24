@@ -9,7 +9,7 @@ from rest_framework_simplejwt.views import (
 )
 
 # Project
-from apps.user.api import UserLogInAPIView, StudentSignUpAPIView
+from apps.user.api import UserLogInAPIView, StudentSignUpAPIView, StudentListViewSet
 
 urlpatterns = [
     path('auth/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
@@ -18,4 +18,5 @@ urlpatterns = [
 
     path('login/', UserLogInAPIView.as_view(), name='user_login'),
     path('student/signup/', StudentSignUpAPIView.as_view(), name='student_signup'),
+    path('students/list/', StudentListViewSet.as_view({'get': 'list'}), name='student_list'),
 ]

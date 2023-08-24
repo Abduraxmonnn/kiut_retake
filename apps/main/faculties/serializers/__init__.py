@@ -1,1 +1,1 @@
-from apps.main.faculties.serializers.serializer_faculty import FacultySerializer
+from apps.main.faculties.serializers.faculty_serializer import FacultySerializer, FacultyListSerializer

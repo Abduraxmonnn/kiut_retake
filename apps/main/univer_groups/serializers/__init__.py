@@ -1,1 +1,1 @@
-from apps.main.univer_groups.serializers.serializer_univer_group import UniverGroupSerializer
+from apps.main.univer_groups.serializers.univer_group_serializer import UniverGroupSerializer, UniverGroupListSerializer
