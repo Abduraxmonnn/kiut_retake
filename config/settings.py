@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'apps.main.programs',
     'apps.main.subjects',
     'apps.main.rooms',
-    # 'apps.main.fails',
+    'apps.main.fails',
     'apps.main.univer_groups',
     'apps.main.deans',
     'apps.main.faculties'
