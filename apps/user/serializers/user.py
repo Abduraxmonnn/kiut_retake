@@ -27,5 +27,6 @@ class UserListSerializer(serializers.ModelSerializer):
             'univer_group',
             'email_address',
             'is_active',
-            'last_login'
+            'last_login',
+            'is_superuser',
         ]
