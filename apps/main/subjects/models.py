@@ -12,7 +12,7 @@ class Subject(models.Model):
 
     name = models.CharField(max_length=255)
     exam_type = models.CharField(max_length=5, choices=EXAM_TYPES)
-    hide = models.BooleanField(default=True, blank=True, null=True)
+    hide = models.BooleanField(default=False, blank=True, null=True)
 
     def __str__(self):
         return self.name
@@ -20,3 +20,7 @@ class Subject(models.Model):
     class Meta:
         verbose_name = 'Subject'
         verbose_name_plural = 'Subjects'
+
+    def save(self, *args, **kwargs):
+        self.name = self.name.upper()
+        super(Subject, self).save(*args, **kwargs)

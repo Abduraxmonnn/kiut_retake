@@ -13,6 +13,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='subject',
             name='hide',
-            field=models.BooleanField(blank=True, default=True, null=True),
+            field=models.BooleanField(blank=True, default=False, null=True),
         ),
     ]
