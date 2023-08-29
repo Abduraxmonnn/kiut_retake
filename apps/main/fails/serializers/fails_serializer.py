@@ -8,4 +8,9 @@ from apps.main.fails.models import Fail
 class FailSerializer(ModelSerializer):
     class Meta:
         model = Fail
-        fields = '__all__'
+        fields = [
+            'id',
+            'subject',
+            'user',
+            'is_free'
+        ]
