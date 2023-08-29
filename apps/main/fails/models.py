@@ -11,6 +11,14 @@ class Fail(models.Model):
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     is_free = models.BooleanField(default=True)
 
+    @property
+    def subject__name(self):
+        return self.subject.name
+
+    @property
+    def user__student_id(self):
+        return self.user.student_id
+
     def __str__(self):
         return f'{self.subject.name} - {self.user.student_id} - {self.is_free}'
 
