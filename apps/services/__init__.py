@@ -1,2 +1,0 @@
-from apps.services.create_services import create_service
-from apps.services.filter_services import filter_service
