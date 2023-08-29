@@ -24,5 +24,6 @@ router.register('univer_groups_list', UniverGroupListViewSet, basename='univer-g
 
 urlpatterns = [
     path(r'', include(router.urls)),
-    path('users/', include("apps.user.urls"))
+    path('users/', include("apps.user.urls")),
+    path('fails/', include("apps.main.fails.urls"))
 ]
