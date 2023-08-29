@@ -42,13 +42,14 @@ INSTALLED_APPS = [
 
     # Apps
     'apps.user',
+    'apps.retake',
     'apps.main.programs',
     'apps.main.subjects',
     'apps.main.rooms',
     'apps.main.fails',
     'apps.main.univer_groups',
     'apps.main.deans',
-    'apps.main.faculties'
+    'apps.main.faculties',
 ]
 
 # SETTINGS FOR FRONT-END
@@ -182,7 +183,9 @@ REST_FRAMEWORK = {
     ],
     'DEFAULT_FILTER_BACKENDS': [
         'django_filters.rest_framework.DjangoFilterBackend'
-    ]
+    ],
+
+    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema'
 }
 
 # DEBUG_TOOLBAR SETTINGS
