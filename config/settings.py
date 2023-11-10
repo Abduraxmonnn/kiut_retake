@@ -43,13 +43,14 @@ INSTALLED_APPS = [
     # Apps
     'apps.user',
     'apps.retake',
-    'apps.main.programs',
+    'apps.main.faculty_directions',
     'apps.main.subjects',
     'apps.main.rooms',
     'apps.main.fails',
     'apps.main.univer_groups',
     'apps.main.deans',
     'apps.main.faculties',
+    'apps.main.departments'
 ]
 
 # SETTINGS FOR FRONT-END

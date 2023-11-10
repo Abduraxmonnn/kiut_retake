@@ -3,7 +3,7 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 
 # Project
-from apps.main.faculties.models import Faculty
+from apps.main.faculty_directions.models import FacultyDirections
 
 
 class UniverGroup(models.Model):
@@ -21,11 +21,11 @@ class UniverGroup(models.Model):
     level = models.SmallIntegerField(default=1, blank=True, null=True)
     type_education = models.CharField(max_length=17, choices=EducationTypes.choices, default=EducationTypes.FULL_TIME)
     language = models.CharField(max_length=2, choices=LanguageTypes.choices, default=LanguageTypes.UZBEK)
-    faculty = models.ForeignKey(Faculty, on_delete=models.CASCADE)
+    faculty_dirs = models.ForeignKey(FacultyDirections, on_delete=models.CASCADE)
 
     def __str__(self):
         return f'{self.name} {self.language}'
 
     class Meta:
-        verbose_name = 'UniverGroup'
-        verbose_name_plural = 'UniverGroups'
+        verbose_name = 'Univer Group'
+        verbose_name_plural = 'Univer Groups'

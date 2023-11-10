@@ -5,7 +5,6 @@ from django.urls import path, include
 from rest_framework import routers
 
 # Project
-from apps.main.programs.api import ProgramViewSet
 from apps.main.rooms.api import RoomViewSet
 from apps.main.subjects.api import SubjectViewSet
 from apps.main.faculties.api import FacultyViewSet, FacultyListViewSet
@@ -13,7 +12,6 @@ from apps.main.univer_groups.api import UniverGroupViewSet, UniverGroupListViewS
 
 router = routers.DefaultRouter()
 
-router.register('programs', ProgramViewSet, basename='programs')
 router.register('rooms', RoomViewSet, basename='rooms')
 router.register('subjects', SubjectViewSet, basename='subjects')
 router.register('faculties', FacultyViewSet, basename='faculties')

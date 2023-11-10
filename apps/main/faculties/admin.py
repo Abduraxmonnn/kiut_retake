@@ -7,7 +7,7 @@ from apps.main.faculties.models import Faculty
 
 @admin.register(Faculty)
 class FacultyAdmin(admin.ModelAdmin):
-    list_display = ['name', 'program', 'dean']
-    list_display_links = ['name', 'program']
+    list_display = ['name', 'dean']
+    list_display_links = ['name']
     search_fields = ['name', ]
     ordering = ['-id']

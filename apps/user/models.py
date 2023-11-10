@@ -1,6 +1,5 @@
 # Python
 import datetime
-import uuid
 
 # Django
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
@@ -12,11 +11,18 @@ from apps.main.univer_groups.models import UniverGroup
 from apps.user.manager import UserManager
 
 
-def upload_image_to(instance, filename):
+def upload_avatar_to(instance, filename):
     """
     file will be uploaded to MEDIA_ROOT/user_images/student_id/<filename>
     """
-    return 'user_images/{0}/{1}'.format(instance.student_id, filename)
+    return 'files/user_images/{0}/{1}'.format(instance.student_id, filename)
+
+
+def upload_background_to(instance, filename):
+    """
+    file will be uploaded to MEDIA_ROOT/user_images/student_id/<filename>
+    """
+    return 'files/user_images/{0}/background___{1}'.format(instance.student_id, filename)
 
 
 class User(AbstractBaseUser, PermissionsMixin):
@@ -60,13 +66,15 @@ class User(AbstractBaseUser, PermissionsMixin):
     dob = models.DateField(blank=True, null=True)
     gender = models.CharField(max_length=6, choices=GenderTypes.choices, default=GenderTypes.MALE)
     nation = models.CharField(max_length=100, blank=True, default='UZBEK')
-    profile_image = models.ImageField(upload_to=upload_image_to, blank=True, null=type)
+    profile_image = models.ImageField(upload_to=upload_avatar_to, blank=True, null=True)
+    background_image = models.ImageField(upload_to=upload_background_to, blank=True, null=True)
     about_me = models.TextField(blank=True, null=True)
     fails = models.IntegerField(blank=True, null=True)
     univer_group = models.ForeignKey(UniverGroup, on_delete=models.SET_NULL, null=True)
     email_address = models.EmailField(blank=True, null=True)
 
     is_active = models.BooleanField(default=True)
+    is_dean = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)
 
@@ -81,7 +89,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     @property
     def calculate_passport_expiry_date(self):
         """
-        This method used to figure out passport_expiry_date using formula "passport_issue_date + (365 * 10)"
+        This method used to figure out passport_expiry_date using the formula "passport_issue_date + (365 * 10)"
         :return: datetime
         """
         issue_date = self.passport_issue_date
@@ -104,16 +112,16 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     def is_member(self, *groups):
         """
-        This method used to check group of user.
-        If result will be True then User member of this group otherwise not member
+        This method used to check a group of users.
+        If a result is True, then User member of this group is otherwise not member
         :return: boolean
         """
         return self.groups.filter(student_id__in=groups).exists()
 
     def is_in_multiple_groups(self, *groups):
         """
-        This method used to check group of user.
-        If result will be True then User member of this group otherwise not member
+        This method used to check a group of users.
+        If a result is True, then User member of this group is otherwise not member
         :return: boolean
         """
         return self.groups.filter(student_id__in=[*groups]).exists()

@@ -20,7 +20,7 @@ class Fail(models.Model):
         return self.user.student_id
 
     def __str__(self):
-        return f'{self.subject.name} - {self.user.student_id} - {self.is_free}'
+        return f'{self.subject__name} - {self.user__student_id} - {self.is_free}'
 
     class Meta:
         verbose_name = 'Fail'

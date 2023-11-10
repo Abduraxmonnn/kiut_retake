@@ -24,6 +24,7 @@ class Room(models.Model):
         choices=RoomTypes.choices,
         default=RoomTypes.LECTURE
     )
+    capacity = models.IntegerField(verbose_name='Capacity of people can retake at time')
 
     def __str__(self):
         return f'{self.build} {self.number} {self.type_room}'
