@@ -11,7 +11,6 @@ from apps.main.rooms.models import Room
 class RetakeCase(models.Model):
     case_index = models.IntegerField(unique=True)
     case = models.TextField()
-    agreement_file = models.FileField(upload_to='files/agreement/%Y/%m/%d')
 
     def __str__(self):
         return self.case
