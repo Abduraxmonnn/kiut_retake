@@ -63,6 +63,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     passport_number = models.CharField(max_length=9, unique=True, null=True)
     passport_issue_date = models.DateField(null=True)
     passport_expiry_date = models.DateField(blank=True, null=True)
+    passport_given_by = models.CharField(max_length=255, null=True)
     dob = models.DateField(blank=True, null=True)
     gender = models.CharField(max_length=6, choices=GenderTypes.choices, default=GenderTypes.MALE)
     nation = models.CharField(max_length=100, blank=True, default='UZBEK')
