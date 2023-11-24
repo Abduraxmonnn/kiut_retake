@@ -1,7 +1,13 @@
 # Django
 from django.contrib import admin
 
-from apps.retake.models import Retake
+from apps.retake.models import Retake, RetakeCase
+
+
+@admin.register(RetakeCase)
+class RetakeCaseAdmin(admin.ModelAdmin):
+    list_display = ['case_index', 'case']
+    list_display_links = ['case_index']
 
 
 @admin.register(Retake)
