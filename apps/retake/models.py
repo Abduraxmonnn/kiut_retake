@@ -32,7 +32,7 @@ class Retake(models.Model):
     subject = models.ForeignKey(Subject, on_delete=models.SET_NULL, null=True)
     retake_date = models.DateField(blank=True, null=True)
     retake_time = models.TimeField(blank=True, null=True)
-    retake_room = models.ForeignKey(Room, on_delete=models.SET_DEFAULT, default=1)
+    retake_room = models.ForeignKey(Room, on_delete=models.SET_NULL, blank=True, null=True)
 
     def __str__(self):
         return f'{self.user.student_id} {self.case.case} {self.subject.name} {self.language}'

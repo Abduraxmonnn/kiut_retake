@@ -6,7 +6,7 @@ from rest_framework.permissions import IsAuthenticated
 # Project
 from apps.main.fails.models import Fail
 from apps.main.subjects.models import Subject
-from apps.services.retake_services import check_for_free
+from apps.services.retake_services import is_check_retake_for_free
 from apps.user.models import User
 from apps.main.fails.serializers import FailCreateSerializer
 
@@ -26,7 +26,8 @@ class FailCreateAPIView(APIView):
         user = serializer.validated_data['user']
 
         get_subject = Subject.objects.filter(name=subject).first()
-        is_free = check_for_free(user=user, subject=subject)
+        # Retake status is checking here not in create Retake
+        is_free = is_check_retake_for_free(user=user, subject=subject)
 
         if not get_subject:
             return Response({"message": "Subject does not Exists"}, 400)

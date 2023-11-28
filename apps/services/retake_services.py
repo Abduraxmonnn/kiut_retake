@@ -37,8 +37,10 @@ def create_retake(language, user, subject, case_index):
         }, status=status.HTTP_201_CREATED)
 
 
-def check_for_free(user, subject):
-    # check_is_free = Retake.objects.exists(user=user, subject=subject)
+def is_check_retake_for_free(user, subject):
+    check_is_free = Retake.objects.filter(subject=subject)
+
+    for item in check_is_free:
+        return True if item.user == user else False
 
     # return False if check_is_free.exists() else True
-    return True
