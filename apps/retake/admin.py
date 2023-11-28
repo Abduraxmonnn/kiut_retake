@@ -12,7 +12,7 @@ class RetakeCaseAdmin(admin.ModelAdmin):
 
 @admin.register(Retake)
 class RetakeAdmin(admin.ModelAdmin):
-    list_display = ['user', 'case', 'subject', 'language']
+    list_display = ['id', 'user', 'case', 'subject', 'language']
     list_display_links = ['user', 'subject']
     list_filter = ['language']
     search_fields = ['user_student_id', ]

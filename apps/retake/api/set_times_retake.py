@@ -5,19 +5,17 @@ from django.shortcuts import get_object_or_404
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, IsAdminUser
 
 # Project
 from apps.main.rooms.models import Room
-from apps.retake.models import Retake, RetakeCase
-from apps.services.retake_services import create_retake
-from apps.user.models import User
-from apps.main.subjects.models import Subject
+from apps.retake.models import Retake
 from apps.retake.serializers.set_times_retake import SetTimesRetakeSerializer
-from apps.custom_permissions.student_permissions import IsStudentOrReadOnly
 
 
 class SetTimesRetakeAPIView(APIView):
+    permission_classes = [IsAuthenticated, IsAdminUser]
+
     def post(self, request, pk=None):
         serializer = SetTimesRetakeSerializer(data=request.data, context={'request': request})
         serializer.is_valid(raise_exception=True)
@@ -52,4 +50,4 @@ class SetTimesRetakeAPIView(APIView):
         return Response({
             'status': 'successfully',
             'message': 'Retake schedules have been successfully updated for the specified students.'
-        })
+        }, status=status.HTTP_200_OK)
