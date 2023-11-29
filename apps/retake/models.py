@@ -30,6 +30,7 @@ class Retake(models.Model):
     user = models.ForeignKey(User, on_delete=models.PROTECT)
     case = models.ForeignKey(RetakeCase, on_delete=models.SET_NULL, null=True)
     subject = models.ForeignKey(Subject, on_delete=models.SET_NULL, null=True)
+    is_hide = models.BooleanField(blank=True, null=True, default=False)
     retake_date = models.DateField(blank=True, null=True)
     retake_time = models.TimeField(blank=True, null=True)
     retake_room = models.ForeignKey(Room, on_delete=models.SET_NULL, blank=True, null=True)

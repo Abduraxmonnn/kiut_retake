@@ -1,0 +1,2 @@
+from apps.user.custom_permissions.dean_permissions import IsDeanOrAdminOrReadOnly
+from apps.user.custom_permissions.student_permissions import IsStudentOrReadOnly

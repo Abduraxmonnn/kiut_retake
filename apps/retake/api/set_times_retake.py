@@ -11,12 +11,13 @@ from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from apps.main.rooms.models import Room
 from apps.retake.models import Retake
 from apps.retake.serializers.set_times_retake import SetTimesRetakeSerializer
+from apps.user.custom_permissions import IsDeanOrAdminOrReadOnly
 
 
 class SetTimesRetakeAPIView(APIView):
-    permission_classes = [IsAuthenticated, IsAdminUser]
+    permission_classes = [IsAuthenticated, IsAdminUser, IsDeanOrAdminOrReadOnly]
 
-    def post(self, request, pk=None):
+    def post(self, request):
         serializer = SetTimesRetakeSerializer(data=request.data, context={'request': request})
         serializer.is_valid(raise_exception=True)
 

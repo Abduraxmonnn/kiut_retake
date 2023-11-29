@@ -10,7 +10,7 @@ from apps.services.retake_services import create_retake
 from apps.user.models import User
 from apps.main.subjects.models import Subject
 from apps.retake.serializers import ApplyRetakeSerializer
-from apps.custom_permissions.student_permissions import IsStudentOrReadOnly
+from apps.user.custom_permissions import IsStudentOrReadOnly
 
 
 class ApplyRetakeAPIView(APIView):

@@ -12,7 +12,8 @@ def create_retake(language, user, subject, case_index):
             language=language,
             user=user,
             subject=subject,
-            case=case_index
+            case=case_index,
+            is_hide=False
         )
         created_retake_data = {
             'id': created_retake.id,
