@@ -50,7 +50,8 @@ INSTALLED_APPS = [
     'apps.main.univer_groups',
     'apps.main.deans',
     'apps.main.faculties',
-    'apps.main.departments'
+    'apps.main.departments',
+    # 'apps.telegram_bot'
 ]
 
 # SETTINGS FOR FRONT-END
@@ -194,6 +195,9 @@ SITE_ID = 1
 INTERNAL_IPS = [
     "127.0.0.1",
 ]
+
+# TELEGRAM SETTINGS
+TELEGRAM_TOKEN = os.getenv('TELEGRAM_TOKEN')
 
 # JWT SETTINGS
 DEFAULTS = {
