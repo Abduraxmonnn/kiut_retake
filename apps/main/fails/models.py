@@ -9,6 +9,9 @@ from apps.main.subjects.models import Subject
 class Fail(models.Model):
     subject = models.ForeignKey(Subject, on_delete=models.SET_NULL, null=True)
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    score = models.IntegerField()
+    subject_credit = models.IntegerField()
+    semester = models.IntegerField()
     is_free = models.BooleanField(default=True)
 
     @property
