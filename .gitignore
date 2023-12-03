@@ -4,6 +4,6 @@ venv
 *.pyc
 /static/
 /media/
-.env
-db.sqlite3
+
+
 /apps/telegram_bot/

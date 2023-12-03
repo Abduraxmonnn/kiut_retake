@@ -1,0 +1,1 @@
+from apps.main.faculty_directions.serializers.list_faculty_direction_serializer import FacultyDirectionToDeanListSerializer

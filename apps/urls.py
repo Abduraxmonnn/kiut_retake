@@ -15,9 +15,8 @@ router = routers.DefaultRouter()
 router.register('rooms', RoomViewSet, basename='rooms')
 router.register('subjects', SubjectViewSet, basename='subjects')
 router.register('faculties', FacultyViewSet, basename='faculties')
-router.register('faculties_list', FacultyListViewSet, basename='faculties-list')
-router.register('univer_groups', UniverGroupViewSet, basename='univer-groups')
-router.register('univer_groups_list', UniverGroupListViewSet, basename='univer-groups-list')
+router.register('faculties-list', FacultyListViewSet, basename='faculties-list')
+router.register('univer-groups_list', UniverGroupListViewSet, basename='univer-groups-list')
 
 
 urlpatterns = [
@@ -25,4 +24,6 @@ urlpatterns = [
     path('users/', include("apps.user.urls")),
     path('fails/', include("apps.main.fails.urls")),
     path('retakes/', include("apps.retake.urls")),
+    path('univer-groups/', include("apps.main.univer_groups.urls"))
+
 ]
