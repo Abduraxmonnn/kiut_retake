@@ -1,5 +1,5 @@
 # Rest-Framework
-from rest_framework import serializers, mixins, viewsets
+from rest_framework import serializers
 
 # Project
 from apps.main.faculties.models import Faculty
