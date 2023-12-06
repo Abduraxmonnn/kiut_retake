@@ -9,6 +9,7 @@ from apps.main.rooms.api import RoomViewSet
 from apps.main.subjects.api import SubjectViewSet
 from apps.main.faculties.api import FacultyViewSet, FacultyListViewSet
 from apps.main.univer_groups.api import UniverGroupViewSet, UniverGroupListViewSet
+from apps.main.departments.api import DepartmentViewSet
 
 router = routers.DefaultRouter()
 
@@ -17,6 +18,7 @@ router.register('subjects', SubjectViewSet, basename='subjects')
 router.register('faculties', FacultyViewSet, basename='faculties')
 router.register('faculties-list', FacultyListViewSet, basename='faculties-list')
 router.register('univer-groups_list', UniverGroupListViewSet, basename='univer-groups-list')
+router.register('departments', DepartmentViewSet, basename='departments')
 
 
 urlpatterns = [

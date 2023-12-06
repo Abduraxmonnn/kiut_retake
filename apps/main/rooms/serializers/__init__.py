@@ -1,1 +1,1 @@
-from apps.main.rooms.serializers.serializer_rooms import RoomSerializer
+from apps.main.rooms.serializers.serializer_rooms_serializer import RoomSerializer

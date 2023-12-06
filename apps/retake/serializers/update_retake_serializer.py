@@ -2,7 +2,7 @@
 from rest_framework import serializers
 
 # Project
-from apps.retake.serializers.set_times_retake import RoomForSetTimesRetakeSerializer
+from apps.retake.serializers.set_times_retake_serializer import RoomForSetTimesRetakeSerializer
 
 
 class UpdateRetakeSerializer(serializers.Serializer):

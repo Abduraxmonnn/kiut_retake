@@ -1,4 +1,4 @@
-from apps.retake.serializers.apply_retake import ApplyRetakeSerializer
-from apps.retake.serializers.list_retake import RetakeListSerializer, RetakeListForDeanSerializer
-from apps.retake.serializers.set_times_retake import SetTimesRetakeSerializer
-from apps.retake.serializers.update_retake import UpdateRetakeSerializer
+from apps.retake.serializers.apply_retake_serializer import ApplyRetakeSerializer
+from apps.retake.serializers.list_retake_serializer import RetakeListSerializer, RetakeListForDeanSerializer
+from apps.retake.serializers.set_times_retake_serializer import SetTimesRetakeSerializer
+from apps.retake.serializers.update_retake_serializer import UpdateRetakeSerializer

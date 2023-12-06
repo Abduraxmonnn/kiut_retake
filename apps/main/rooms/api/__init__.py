@@ -1,1 +1,1 @@
-from apps.main.rooms.api.api_rooms import RoomViewSet
+from apps.main.rooms.api.api_rooms_api import RoomViewSet

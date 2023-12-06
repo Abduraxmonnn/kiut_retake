@@ -1,0 +1,1 @@
+from apps.main.departments.api.department_api import DepartmentViewSet

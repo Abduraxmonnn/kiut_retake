@@ -1,1 +1,1 @@
-from apps.main.faculties.api.api_faculty import FacultyViewSet, FacultyListViewSet
+from apps.main.faculties.api.faculty_api import FacultyViewSet, FacultyListViewSet

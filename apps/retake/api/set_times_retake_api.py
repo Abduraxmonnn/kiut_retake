@@ -10,7 +10,7 @@ from rest_framework.permissions import IsAuthenticated, IsAdminUser
 # Project
 from apps.main.rooms.models import Room
 from apps.retake.models import Retake
-from apps.retake.serializers.set_times_retake import SetTimesRetakeSerializer
+from apps.retake.serializers.set_times_retake_serializer import SetTimesRetakeSerializer
 from apps.user.custom_permissions import IsDeanOrAdminOrReadOnly
 
 

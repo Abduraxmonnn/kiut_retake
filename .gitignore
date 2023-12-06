@@ -4,6 +4,4 @@ venv
 *.pyc
 /static/
 /media/
-
-
 /apps/telegram_bot/

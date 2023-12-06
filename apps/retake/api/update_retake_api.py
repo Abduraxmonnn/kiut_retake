@@ -10,7 +10,7 @@ from rest_framework.permissions import IsAuthenticated, IsAdminUser
 # Project
 from apps.main.rooms.models import Room
 from apps.retake.models import Retake
-from apps.retake.serializers.update_retake import UpdateRetakeSerializer
+from apps.retake.serializers.update_retake_serializer import UpdateRetakeSerializer
 
 
 class UpdateRetakeAPIView(APIView):

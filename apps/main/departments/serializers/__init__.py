@@ -1,0 +1,1 @@
+from apps.main.departments.serializers.department_serializer import HeadOfDepartmentSerializer, DepartmentSerializer
