@@ -5,6 +5,7 @@ from django.contrib.auth import authenticate, login
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
+from rest_framework_simplejwt.tokens import RefreshToken
 
 # Project
 from apps.user.serializers import UserLogInSerializer
@@ -23,18 +24,24 @@ class UserLogInAPIView(APIView):
             user = User.objects.get(student_id=student_id)
 
             if user is not None:
-                if user.check_password(password):
+                if user.password == password:
                     if user.is_active:
                         user_data = {
                             'student_id': student_id,
                             'full_name': user.full_name,
                             'univer_group': user.univer_group.name
                         }
+                        refresh = RefreshToken.for_user(user)
+                        token = {
+                            'refresh': str(refresh),
+                            'access': str(refresh.access_token)
+                        }
 
                         login(request, user=user)
                         return Response({
                             "data": user_data,
-                            "message": "Login successful."
+                            "message": "Login successful.",
+                            "token": token
                         }, status=status.HTTP_200_OK)
                     else:
                         return Response({"message": "User is Inactive."}, status=status.HTTP_400_BAD_REQUEST)
